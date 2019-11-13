@@ -67,7 +67,7 @@ public class ImageController {
 //
 //    public ResponseEntity<AccountResponse> deleteImage(@PathVariable("recipieId") String recipeId){//}，@PathVariable("imageId") String  recipeId){
 //
-//        imageService.deleteImage(recipeId);
+//  
 //
 //        return new ResponseEntity<>(HttpStatus.OK);
 //    }
