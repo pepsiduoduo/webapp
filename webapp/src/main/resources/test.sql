@@ -1,0 +1,1 @@
+update users set password = $2a$10$4sgdqBGJ874LjfU7qEkU0eQpXmLjQvcmZN2KCvFO0cKH3.bHiLcb., firstName = 11f, lastName = 11l, account_updated = Wed Oct 23 21:54:48 EDT 2019, where email = 11@qq.com;

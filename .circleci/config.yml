@@ -1,0 +1,36 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/python:latest
+    steps:
+      - checkout
+      - run:
+          name: Install packages
+          command: |
+            #sudo yum update && sudo yum install wget zip unzip openjdk-8-jdk -y
+            sudo pip install awscli
+      - run:
+          name: Build Artifact
+          command: |
+            cd ~
+            cd project
+            cd webapp
+            sudo apt-get update
+            sudo apt install maven
+            mvn spring-boot:run
+      - run:
+          name: Zip Artifact
+          command: |
+            cp infrastructure/aws/codedeploy/afterInstall.sh .
+            cp infrastructure/aws/codedeploy/cloudwatch-config.json .
+            cp webapp/target/SpringBoot-1.0-SNAPSHOT.jar .
+            zip csye6225-web-app-${CIRCLE_BUILD_NUM}.zip SpringBoot-1.0-SNAPSHOT.jar afterInstall.sh cloudwatch-config.json appspec.yml
+      - run:
+          name: Upload Artifact to S3
+          command: |
+            aws s3 cp csye6225-web-app-${CIRCLE_BUILD_NUM}.zip s3://${BucketName}/csye6225-web-app-${CIRCLE_BUILD_NUM}.zip
+      - run:
+          name: Make CodeDeploy API call
+          command: |
+            aws deploy create-deployment --application-name csye6225-webapp --deployment-group-name csye6225-webapp-deployment --s3-location bucket=${BucketName},bundleType=zip,key=csye6225-web-app-${CIRCLE_BUILD_NUM}.zip
