@@ -1,5 +1,4 @@
 #!/bin/bash
-
 sudo systemctl stop tomcat.service
 
 sudo systemctl restart tomcat.service
