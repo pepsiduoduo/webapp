@@ -12,13 +12,13 @@ sudo systemctl restart tomcat.service
 #sudo rm -rf /opt/tomcat/logs/*.log
 #sudo rm -rf /opt/tomcat/logs/*.txt
 
-sudo systemctl stop SpringBoot-1.0-SNAPSHOT
+#sudo systemctl stop SpringBoot-1.0-SNAPSHOT
 
 #sudo mv -f ~/SpringBoot-1.0-SNAPSHOT.jar /var/SpringBoot-1.0-SNAPSHOT/
 
 #sudo chown SpringBoot-1.0-SNAPSHOT:SpringBoot-1.0-SNAPSHOT /var/SpringBoot-1.0-SNAPSHOT/SpringBoot-1.0-SNAPSHOT.jar
 
-sudo chmod 500 ~/SpringBoot-1.0-SNAPSHOT.jar
+#sudo chmod 500 ~/SpringBoot-1.0-SNAPSHOT.jar
 
 sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl \
     -a fetch-config \
@@ -26,6 +26,6 @@ sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl \
     -c file:/opt/cloudwatch-config.json \
     -s
 
-sudo systemctl enable SpringBoot-1.0-SNAPSHOT
+#sudo systemctl enable SpringBoot-1.0-SNAPSHOT
 
-sudo systemctl start SpringBoot-1.0-SNAPSHOT
+#sudo systemctl start SpringBoot-1.0-SNAPSHOT
