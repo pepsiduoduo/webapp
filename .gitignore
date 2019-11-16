@@ -106,3 +106,4 @@ venv.bak/
 #ccweb
 *.tfstate*
 *.idea
+.DS_Store
