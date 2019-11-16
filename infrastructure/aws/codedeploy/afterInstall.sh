@@ -14,7 +14,7 @@ sudo rm -rf /opt/tomcat/logs/*.txt
 
 sudo systemctl stop SpringBoot-1.0-SNAPSHOT
 
-sudo mv -f /SpringBoot-1.0-SNAPSHOT.jar /var/SpringBoot-1.0-SNAPSHOT/
+sudo mv -f ~/SpringBoot-1.0-SNAPSHOT.jar /var/SpringBoot-1.0-SNAPSHOT/
 
 sudo chown SpringBoot-1.0-SNAPSHOT:SpringBoot-1.0-SNAPSHOT /var/SpringBoot-1.0-SNAPSHOT/SpringBoot-1.0-SNAPSHOT.jar
 
