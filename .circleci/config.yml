@@ -24,8 +24,8 @@ jobs:
           command: |
             cp infrastructure/aws/codedeploy/afterInstall.sh .
             cp infrastructure/aws/codedeploy/cloudwatch-config.json .
-            cp webapp/target/app.jar .
-            zip csye6225-web-app-${CIRCLE_BUILD_NUM}.zip app.jar afterInstall.sh cloudwatch-config.json appspec.yml
+            cp webapp/target/SpringBoot-1.0-SNAPSHOT.jar .
+            zip csye6225-web-app-${CIRCLE_BUILD_NUM}.zip SpringBoot-1.0-SNAPSHOT.jar afterInstall.sh cloudwatch-config.json appspec.yml
       - run:
           name: Upload Artifact to S3
           command: |
