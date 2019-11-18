@@ -6,8 +6,15 @@ files:
     destination: /var/webapps
   - source: app.jar
     destination: /opt/tomcat/webapps
-
+  - source: cloudwatch-config.json
+    destination: /opt
+    
 hooks:
+  BeforeInstall:
+  - location: ./beforeInstall.sh
+    timeout:180
+    runas:centos
+  
   AfterInstall:
    - location: ./afterInstall.sh
      timeout: 180
