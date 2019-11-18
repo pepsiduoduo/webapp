@@ -2,8 +2,10 @@ version: 0.0
 os: linux
 
 files:
-  - source: ./
-    destination: /home/centos
+  - source: webapp
+    destination: /var/webapps
+  - source: app.jar
+    destination: /opt/tomcat/webapps
 
 hooks:
   AfterInstall:
