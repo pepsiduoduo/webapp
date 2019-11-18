@@ -2,18 +2,20 @@ version: 0.0
 os: linux
 
 files:
-  - source: webapp
-    destination: /var/webapps
-  - source: app.jar
-    destination: /opt/tomcat/webapps
-  - source: cloudwatch-config.json
-    destination: /opt
+  - source: ./
+    destination: /home/centos
+#   - source: webapp
+#     destination: /var/webapps
+#   - source: app.jar
+#     destination: /opt/tomcat/webapps
+#   - source: cloudwatch-config.json
+#     destination: /opt
     
 hooks:
-  BeforeInstall:
-  - location: ./beforeInstall.sh
-    timeout:180
-    runas:centos
+#   BeforeInstall:
+#   - location: ./beforeInstall.sh
+#     timeout:180
+#     runas:centos
   
   AfterInstall:
    - location: ./afterInstall.sh
