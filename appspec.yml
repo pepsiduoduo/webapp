@@ -4,6 +4,8 @@ os: linux
 files:
   - source: ./
     destination: /home/centos
+     - source: cloudwatch-config.json
+    destination: /opt
 #   - source: webapp
 #     destination: /var/webapps
 #   - source: app.jar
